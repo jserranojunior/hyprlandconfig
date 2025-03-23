@@ -1,1 +1,1 @@
-pkill waybar   && waybar & disown
+pkill waybar && waybar & disown
