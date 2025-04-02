@@ -1,0 +1,23 @@
+sudo dnf install -y 
+    hyprland 
+    waybar 
+    rofi 
+    mako 
+    grim 
+    slurp 
+    wl-clipboard 
+    swaylock 
+    swayidle 
+    xdg-desktop-portal-wlr 
+    kitt 
+    lxpolkit
+    thunar 
+    lightdm lightdm-gtk
+    dnfdragora
+    htop
+    flatpak
+    git
+
+&&
+
+easyflatpak
