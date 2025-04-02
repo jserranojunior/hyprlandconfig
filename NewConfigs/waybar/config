@@ -1,0 +1,44 @@
+{
+  "layer": "top",
+  "position": "top",
+  "modules-left": [
+    "hyprland/workspaces",
+    "hyprland/window"
+  ],
+  "modules-center": [
+    "clock"
+  ],
+  "modules-right": [
+    "cpu",
+    "memory",
+    "network",
+    "pulseaudio"
+  ],
+  "clock": {
+    "format": " {:%H:%M:%S}",
+    "tooltip": true,
+    "tooltip-format": "📅 {:%A, %d de %B de %Y}\n⌚ {:%H:%M:%S}"
+  },
+  "cpu": {
+    "format": " {usage}%",
+    "tooltip": true,
+    "tooltip-format": "Uso da CPU: {usage}%"
+  },
+  "memory": {
+    "format": " {used}/{total} GB",
+    "tooltip": true,
+    "tooltip-format": "Memória: {used} GB de {total} GB"
+  },
+  "network": {
+    "format-wifi": " {essid} ({signal}%)",
+    "format-ethernet": " {ipaddr}",
+    "format-disconnected": " Sem conexão",
+    "tooltip": true
+  },
+  "pulseaudio": {
+    "format": " {volume}%",
+    "format-muted": " Mutado",
+    "tooltip": true,
+    "on-click": "pavucontrol"
+  }
+}
