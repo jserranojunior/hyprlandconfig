@@ -24,8 +24,8 @@
     "custom/logout"
   ],
 "custom/updates": {
-    "format": "⟳ { }",
-    "exec": "echo 0",
+  "format": "⟳ {}",
+    "exec": "dnf check-update | grep -c '^[[:alnum:]]' || echo 0",
     "tooltip": false,
     "interval": 1800
 }
