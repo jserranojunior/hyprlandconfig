@@ -17,7 +17,13 @@ sudo dnf install -y
     htop
     flatpak
     git
-
+    imv
+    fzt
+    hyprpaper
 &&
 
 easyflatpak
+
+&&
+
+pip install rofi-ranger

@@ -12,13 +12,14 @@
     "cpu",
     "memory",
     "network",
-    "pulseaudio"
+    "pulseaudio",
+    "custom/logout"
   ],
-  "clock": {
+"clock": {
     "format": " {:%H:%M:%S}",
     "tooltip": true,
-    "tooltip-format": "📅 {:%A, %d de %B de %Y}\n⌚ {:%H:%M:%S}"
-  },
+    "tooltip-format": "{:%A, %d de %B de %Y}\n\n```sh\n$(cal)\n```"
+},
   "cpu": {
     "format": " {usage}%",
     "tooltip": true,
@@ -40,5 +41,10 @@
     "format-muted": " Mutado",
     "tooltip": true,
     "on-click": "pavucontrol"
+  },
+  "custom/logout": {
+    "format": "⏻",
+    "tooltip": "Logout",
+    "on-click": "wlogout"
   }
 }
