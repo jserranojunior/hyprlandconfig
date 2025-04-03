@@ -13,6 +13,7 @@
     "memory",
     "network",
     "pulseaudio",
+    "bluetooth",
     "custom/logout"
   ],
 "clock": {
@@ -31,20 +32,75 @@
     "tooltip-format": "Memória: {used} GB de {total} GB"
   },
   "network": {
-    "format-wifi": " {essid} ({signal}%)",
-    "format-ethernet": " {ipaddr}",
-    "format-disconnected": " Sem conexão",
-    "tooltip": true
-  },
-  "pulseaudio": {
-    "format": " {volume}%",
-    "format-muted": " Mutado",
-    "tooltip": true,
-    "on-click": "pavucontrol"
-  },
+	"format": "{ifname}",
+	"format-wifi": "{icon}",
+	"format-ethernet": "󰌘",
+	"format-disconnected": "󰌙",
+	"tooltip-format": "{ipaddr}  {bandwidthUpBits}  {bandwidthDownBits}",
+	"format-linked": "󰈁 {ifname} (No IP)",
+	"tooltip-format-wifi": "{essid} {icon} {signalStrength}%",
+	"tooltip-format-ethernet": "{ifname} 󰌘",
+	"tooltip-format-disconnected": "󰌙 Disconnected",
+	"max-length": 30,
+	"format-icons": [
+		"󰤯", "󰤟", "󰤢", "󰤥", "󰤨"
+	],
+	"on-click-right": "kitty nmtui"
+},
+ "pulseaudio": {
+	"format": "{icon} {volume}%",
+	"format-bluetooth": "{icon} 󰂰 {volume}%",
+	"format-muted": "󰖁",
+	"format-icons": {
+		"headphone": "",
+		"hands-free": "",
+		"headset": "",
+		"phone": "",
+		"portable": "",
+		"car": "",
+		"default": [
+			"", "", "󰕾",  ""
+		],
+		"ignored-sinks": [
+			"Easy Effects Sink"
+		]
+	},
+	"scroll-step": 5.0,
+	"on-click": "$HOME/.config/hypr/scripts/Volume.sh --toggle",
+	"on-click-right": "pavucontrol -t 3",
+	"on-scroll-up": "$HOME/.config/hypr/scripts/Volume.sh --inc",
+	"on-scroll-down": "$HOME/.config/hypr/scripts/Volume.sh --dec",
+	"tooltip-format": "{icon} {desc} | {volume}%",
+	"smooth-scrolling-threshold": 1
+},
+"pulseaudio#microphone": {
+	"format": "{format_source}",
+	"format-source": " {volume}%",
+	"format-source-muted": "",
+	"on-click": "$HOME/.config/hypr/scripts/Volume.sh --toggle-mic",
+	"on-click-right": "pavucontrol -t 4",
+	"on-scroll-up": "$HOME/.config/hypr/scripts/Volume.sh --mic-inc",
+	"on-scroll-down": "$HOME/.config/hypr/scripts/Volume.sh --mic-dec",
+	"tooltip-format": "{source_desc} | {source_volume}%",
+	"scroll-step": 5,
+},
+"tray": {
+	"icon-size": 20,
+	"spacing": 4,
+},
   "custom/logout": {
     "format": "⏻",
     "tooltip": "Logout",
     "on-click": "wlogout"
-  }
+  },
+  "bluetooth": {
+	"format": " ",
+	"format-disabled": "󰂳",
+	"format-connected": "󰂱 {num_connections}",
+	"tooltip-format": " {device_alias}",
+	"tooltip-format-connected": "{device_enumerate}",
+	"tooltip-format-enumerate-connected": " {device_alias} 󰂄{device_battery_percentage}%",
+	"tooltip": true,
+	"on-click": "blueman-manager"
+}
 }
