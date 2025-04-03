@@ -12,18 +12,48 @@ sudo dnf install -y
     kitt 
     lxpolkit
     thunar 
-    lightdm lightdm-gtk
-    dnfdragora
+    
     htop
     flatpak
     git
-    imv
+    chafa
     fzt
     hyprpaper
-&&
+    sddm
+    qt6-qt5compat 
+    qt6-qtdeclarative 
+    qt6-qtsvg
 
+
+# Gerenciador de pacotes 
+dnfdragora
 easyflatpak
 
-&&
 
-pip install rofi-ranger
+#### criar arquivo de inicializar o hyprland
+sudo nano /usr/share/wayland-sessions/hyprland.desktop
+
+[Desktop Entry]
+Name=Hyprland
+Comment=An Intelligent Dynamic Tiling Wayland Compositor
+Exec=Hyprland
+Type=Application
+
+# configurar o sddm
+sudo nano /etc/sddm.conf
+
+[General]
+DisplayServer=wayland
+Session=hyprland.desktop
+
+#Tema do sddm
+cd /usr/share/sddm/themes/
+git clone https://github.com/JaKooLit/simple-sddm-2.git
+nano /etc/sddm.conf
+colocar esse tema
+Current = simple-sddm-2
+
+#Habilitar no boot
+sudo systemctl enable sddm
+sudo systemctl set-default graphical.target
+
