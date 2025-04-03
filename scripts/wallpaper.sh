@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Configurações
-WALLPAPER_DIR="$HOME/Pictures"
+WALLPAPER_DIR="/home/jorge/Imagens/Wallpaper/"
 HYPRPAPER_CONF="$HOME/.config/hyprlandconfig/NewConfigs/hypr/hyprpaper.conf"
 LOG_FILE="/tmp/hyprpaper_selector.log"
 
