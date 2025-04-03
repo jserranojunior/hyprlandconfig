@@ -1,3 +1,4 @@
+
 {
   "layer": "top",
   "position": "top",
@@ -6,16 +7,89 @@
     "hyprland/window"
   ],
   "modules-center": [
-    "clock"
+    "clock",
+  
+    "group/app_drawer"
+  
   ],
   "modules-right": [
-    "cpu",
-    "memory",
+    "custom/swaync",
     "network",
+    "tray",
     "pulseaudio",
     "bluetooth",
+    "custom/separator#dot-line",
+    "custom/updates",
+    "custom/separator#dot-line",
     "custom/logout"
   ],
+"custom/updates": {
+    "format": "⟳ { }",
+    "exec": "echo 0",
+    "tooltip": false,
+    "interval": 1800
+}
+,
+"group/app_drawer": {
+	"orientation": "inherit",
+	"drawer": {
+		"transition-duration": 500,
+		"children-class": "",
+		"transition-left-to-right": true
+        },
+	"modules": [
+		"custom/browser",
+		"custom/file_manager",
+		"custom/tty",
+		"custom/steam",
+		"custom/vscode",
+		"custom/youtubemusic"
+	]
+},
+"custom/youtubemusic": {
+    "format": "🎵 ",
+    "on-click": "flatpak run --command=brave com.brave.Browser --profile-directory=Default --app-id=cinhimbnkkaeohfgghhklpknlkffjgod",
+    "tooltip": true,
+    "tooltip-format": "Launch YouTube Music"
+},
+      
+
+"custom/file_manager": {
+	"format": " ",
+	"on-click": "xdg-open . &",
+	"tooltip": true,
+	"tooltip-format": "Arquivos",
+},
+
+"custom/tty": {
+	"format": " ",
+	"on-click": "kitty &",
+	"tooltip": true,
+	"tooltip-format": "Terminal",
+},
+
+"custom/browser": {
+	"format": " ",
+	"on-click": "xdg-open http:// &",
+	"tooltip": true,
+	"tooltip-format": "Navegador",
+},
+
+"custom/steam": {
+  "format": "🎮 ",
+  "on-click": "steam",
+  "tooltip": true,
+  "tooltip-format": "Steam"
+}
+,
+
+"custom/vscode": {
+  "format": "📝 ",
+  "on-click": "code",
+  "tooltip": true,
+  "tooltip-format": "Launch VS Code"
+}
+,
 "clock": {
     "format": " {:%H:%M:%S}",
     "tooltip": true,
@@ -48,46 +122,30 @@
 	"on-click-right": "kitty nmtui"
 },
  "pulseaudio": {
-	"format": "{icon} {volume}%",
-	"format-bluetooth": "{icon} 󰂰 {volume}%",
-	"format-muted": "󰖁",
-	"format-icons": {
-		"headphone": "",
-		"hands-free": "",
-		"headset": "",
-		"phone": "",
-		"portable": "",
-		"car": "",
-		"default": [
-			"", "", "󰕾",  ""
-		],
-		"ignored-sinks": [
-			"Easy Effects Sink"
-		]
-	},
-	"scroll-step": 5.0,
-	"on-click": "$HOME/.config/hypr/scripts/Volume.sh --toggle",
-	"on-click-right": "pavucontrol -t 3",
-	"on-scroll-up": "$HOME/.config/hypr/scripts/Volume.sh --inc",
-	"on-scroll-down": "$HOME/.config/hypr/scripts/Volume.sh --dec",
-	"tooltip-format": "{icon} {desc} | {volume}%",
-	"smooth-scrolling-threshold": 1
-},
-"pulseaudio#microphone": {
-	"format": "{format_source}",
-	"format-source": " {volume}%",
-	"format-source-muted": "",
-	"on-click": "$HOME/.config/hypr/scripts/Volume.sh --toggle-mic",
-	"on-click-right": "pavucontrol -t 4",
-	"on-scroll-up": "$HOME/.config/hypr/scripts/Volume.sh --mic-inc",
-	"on-scroll-down": "$HOME/.config/hypr/scripts/Volume.sh --mic-dec",
-	"tooltip-format": "{source_desc} | {source_volume}%",
-	"scroll-step": 5,
-},
-"tray": {
-	"icon-size": 20,
-	"spacing": 4,
-},
+    "format": "{volume}% {icon} {format_source}",
+    "format-bluetooth": "{volume}% {icon} {format_source}",
+    "format-bluetooth-muted": " {icon} {format_source}",
+    "format-muted": " {format_source}",
+    "format-source": "{volume}% ",
+    "format-source-muted": "",
+    "format-icons": {
+      "headphone": "",
+      "hands-free": "",
+      "headset": "",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": [
+        "",
+        "",
+        ""
+      ]
+    },
+    "on-click": "pavucontrol"
+  },
+  "tray": {
+    "spacing": 10
+  },
   "custom/logout": {
     "format": "⏻",
     "tooltip": "Logout",
@@ -102,5 +160,56 @@
 	"tooltip-format-enumerate-connected": " {device_alias} 󰂄{device_battery_percentage}%",
 	"tooltip": true,
 	"on-click": "blueman-manager"
-}
+},
+"custom/swaync": {
+	"tooltip": true,
+	"tooltip-format": "Left Click: Launch Notification Center\nRight Click: Do not Disturb",
+	"format": "{} {icon} ",
+	"format-icons": {
+		"notification": "<span foreground='red'><sup></sup></span>",
+		"none": "",
+		"dnd-notification": "<span foreground='red'><sup></sup></span>",
+		"dnd-none": "",
+		"inhibited-notification": "<span foreground='red'><sup></sup></span>",
+		"inhibited-none": "",
+		"dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
+		"dnd-inhibited-none": ""
+	},
+	"return-type": "json",
+	"exec-if": "which swaync-client",
+	"exec": "swaync-client -swb",
+	"on-click": "sleep 0.1 && swaync-client -t -sw",
+	"on-click-right": "swaync-client -d -sw",
+	"escape": true,
+},
+"custom/separator#dot": {
+	"format": "  .  ",
+	"interval": "once",
+	"tooltip": false
+},
+"custom/separator#dot-line": {
+	"format": "  |  ",
+	"interval": "once",
+	"tooltip": false
+},
+"custom/separator#line": {
+	"format": "|",
+	"interval": "once",
+	"tooltip": false
+},
+"custom/separator#blank": {
+	"format": "",
+	"interval": "once",
+	"tooltip": false
+},
+"custom/separator#blank_2": {
+	"format": "  ",
+	"interval": "once",
+	"tooltip": false
+},
+"custom/separator#blank_3": {
+	"format": "   ",
+	"interval": "once",
+	"tooltip": false
+},
 }
