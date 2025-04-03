@@ -1,20 +1,32 @@
 
 {
+  "height": 34,
   "layer": "top",
+  "exclusive": true,
+  "passthrough": false,
   "position": "top",
+  "spacing": 3,
+  "fixed-center": true,
+  "ipc": {
+    "enabled": true,
+    "socket": "/tmp/hyprland.sock"
+  },
+  "margin-top": 3,
+  "margin-left": 8,
+  "margin-right": 8,
   "modules-left": [
     "hyprland/workspaces",
-    "hyprland/window"
+    
   ],
   "modules-center": [
-    "clock",
+
   
     "group/app_drawer"
   
   ],
   "modules-right": [
     "custom/swaync",
-    "network",
+    "clock",
     "tray",
     "pulseaudio",
     "bluetooth",
@@ -23,6 +35,22 @@
     "custom/separator#dot-line",
     "custom/logout"
   ],
+  "hyprland/workspaces": {
+	"active-only": false,
+	"all-outputs": true,
+	"format": "{icon}",
+	"show-special": false,
+	"on-click": "activate",
+	"on-scroll-up": "hyprctl dispatch workspace e+1",
+	"on-scroll-down": "hyprctl dispatch workspace e-1",
+    "persistent-workspaces": {
+      "*": 5
+	},
+	"format-icons": {
+		"active": "",
+		"default": "",
+	},
+},
 "custom/updates": {
   "format": "⟳ {}",
     "exec": "dnf check-update | grep -c '^[[:alnum:]]' || echo 0",
@@ -69,14 +97,14 @@
 },
 
 "custom/browser": {
-	"format": " ",
+	"format": "🌍 ",
 	"on-click": "xdg-open http:// &",
 	"tooltip": true,
 	"tooltip-format": "Navegador",
 },
 
 "custom/steam": {
-  "format": "🎮 ",
+  "format": "🏆 ",
   "on-click": "steam",
   "tooltip": true,
   "tooltip-format": "Steam"
