@@ -12,6 +12,7 @@ sudo dnf install -y
     kitt 
     lxpolkit
     thunar 
+    blueman
     
     htop
     flatpak
