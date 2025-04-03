@@ -23,6 +23,7 @@ sudo dnf install -y
     qt6-qt5compat 
     qt6-qtdeclarative 
     qt6-qtsvg
+    hyprlock
 
 
 # Gerenciador de pacotes 
@@ -57,3 +58,6 @@ Current = simple-sddm-2
 sudo systemctl enable sddm
 sudo systemctl set-default graphical.target
 
+
+sudo nano ~/.profile
+exec --no-startup-id /home/jorge/.config/hyprlandconfig/NewConfigs/scripts/inactivity_lock.sh
