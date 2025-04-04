@@ -2,7 +2,7 @@
 
 # Configurações
 WALLPAPER_DIR="/home/jorge/Imagens/Wallpaper/"
-HYPRPAPER_CONF="$HOME/.config/hyprlandconfig/NewConfigs/hypr/hyprpaper.conf"
+HYPRPAPER_CONF="/opt/hyprland/hypr/hyprpaper.conf"
 LOG_FILE="/tmp/hyprpaper_selector.log"
 
 # Limpar logs anteriores
