@@ -1,14 +1,11 @@
 #!/bin/bash
 
-# Configurações
 WALLPAPER_DIR="/home/jorge/Imagens/Wallpaper/"
 HYPRPAPER_CONF="/opt/hyprland/hypr/hyprpaper.conf"
 LOG_FILE="/tmp/hyprpaper_selector.log"
 
-# Limpar logs anteriores
 > "$LOG_FILE"
 
-# Verificar dependências
 check_deps() {
     local missing=()
     command -v fzf >/dev/null || missing+=("fzf")
@@ -21,17 +18,14 @@ check_deps() {
     }
 }
 
-# Aplicar wallpaper
 apply_wallpaper() {
     local image="$1"
     
-    # Criar configuração
     cat > "$HYPRPAPER_CONF.tmp" <<EOF && mv -f "$HYPRPAPER_CONF.tmp" "$HYPRPAPER_CONF"
 preload = $image
 wallpaper = ,$image
 EOF
     
-    # Recarregar hyprpaper
     if pgrep hyprpaper >/dev/null; then
         hyprctl hyprpaper unload all &>> "$LOG_FILE"
         hyprctl hyprpaper preload "$image" &>> "$LOG_FILE"
@@ -43,7 +37,6 @@ EOF
     echo "$image" > ~/.current_wallpaper
 }
 
-# Selecionar imagem
 select_wallpaper() {
     fzf --height=90% \
         --border \
@@ -57,7 +50,6 @@ select_wallpaper() {
         < <(find "$WALLPAPER_DIR" -type f \( -iname "*.jpg" -o -iname "*.png" -o -iname "*.jpeg" -o -iname "*.webp" \)) 2>/dev/null
 }
 
-# Main
 check_deps
 clear
 IMAGE=$(select_wallpaper)
