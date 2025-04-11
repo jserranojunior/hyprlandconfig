@@ -28,6 +28,9 @@ sudo dnf install -y \
     qt6-qtsvg \
 
     playerctl
+
+    nm-connection-editor
+    network-manager-applet
    
 
 

@@ -22,6 +22,7 @@
   "modules-right": [
     "custom/swaync",
     "clock",
+    "network",
     "tray",
     "pulseaudio",
     "bluetooth",
@@ -138,7 +139,7 @@
       "󰤥",
       "󰤨"
     ],
-    "on-click-right": "kitty nmtui"
+    "on-click": "nm-connection-editor"
   },
   "pulseaudio": {
     "format": "{volume}% {icon} {format_source}",
