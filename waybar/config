@@ -108,8 +108,13 @@
   },
   "clock": {
     "format": " {:%H:%M:%S}",
+    "format-alt": " {:%d/%m/%Y}",
     "tooltip": true,
-    "tooltip-format": "{:%A, %d de %B de %Y}\n\n```sh\n$(cal)\n```"
+    "tooltip-format": "{:%A, %d de %B de %Y}",
+    "on-click": "foot --app-id calendar sh -c 'cal -y --color=always | less -R'",
+    "on-click-right": "foot --app-id calendar sh -c 'cal -3 --color=always | less -R'",
+    "on-scroll-up": "tzup",
+    "on-scroll-down": "tzdown"
   },
   "cpu": {
     "format": " {usage}%",

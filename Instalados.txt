@@ -32,11 +32,16 @@ sudo dnf install -y \
     nm-connection-editor
     network-manager-applet
    
-
+# calendario waybar
+foot
 
 # Gerenciador de pacotes 
 dnfdragora
 easyflatpak
+
+## Gerenciador de tarefas
+flatpak install flathub io.missioncenter.MissionCenter
+
 
 
 #### criar arquivo de inicializar o hyprland
