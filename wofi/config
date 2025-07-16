@@ -1,0 +1,13 @@
+[config]
+allow_images=true
+width=600
+height=550
+show=drun
+prompt=🔍 Procure um app...
+always_parse_args=true
+show_all=true
+term=kitty
+hide_scroll=true
+print_command=true
+insensitive=true
+columns=1

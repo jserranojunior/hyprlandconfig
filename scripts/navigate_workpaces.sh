@@ -1,29 +1,18 @@
 #!/bin/bash
 
-get_active_workspaces() {
-    hyprctl workspaces -j | jq -r '.[] | .id' | sort -n
-}
+# Obtém o workspace atual
+current_ws=$(hyprctl activeworkspace -j | jq -r '.id // 1')
 
-active_workspaces=($(get_active_workspaces))
-current_workspace=$(hyprctl activeworkspace -j | jq -r '.id')
+# Lista os workspaces ativos, exceto o atual e o 1
+readarray -t relevant_ws < <(
+  hyprctl workspaces -j | jq -r --argjson current "$current_ws" '
+    [.[] | select(.id != $current and .id > 1) | .id] | sort | .[]
+  '
+)
 
-if [ -z "$current_workspace" ]; then
-    current_workspace=1
-fi
-
-relevant_workspaces=()
-for ws in "${active_workspaces[@]}"; do
-    if [ "$ws" -ne "$current_workspace" ] && [ "$ws" -gt 1 ]; then
-        relevant_workspaces+=("$ws")
-    fi
-done
-
-if [ "${#relevant_workspaces[@]}" -gt 0 ]; then
-    hyprctl dispatch workspace "${relevant_workspaces[0]}"
+# Alterna para o primeiro workspace relevante, se existir; senão alterna entre 1 e 2
+if [[ ${#relevant_ws[@]} -gt 0 ]]; then
+  hyprctl dispatch workspace "${relevant_ws[0]}"
 else
-    if [ "$current_workspace" -eq 1 ]; then
-        hyprctl dispatch workspace 2
-    else
-        hyprctl dispatch workspace 1
-    fi
+  [[ "$current_ws" -eq 1 ]] && hyprctl dispatch workspace 2 || hyprctl dispatch workspace 1
 fi

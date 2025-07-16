@@ -1,0 +1,139 @@
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+* {
+  font-family: "JetBrainsMono Nerd Font Propo", monospace, sans-serif;
+  font-size: 18px;
+  outline: none;
+  border: none;
+  text-shadow: none;
+  background-color: rgba(25, 0, 46, 0.4);
+  background: transparent;
+  color: #c9c2dc;
+  user-select: none;
+}
+
+window {
+  all: unset;
+  padding: 25px 30px;
+  border-radius: 18px;
+  background-color: rgba(25, 0, 46, 0.65);
+  box-shadow: 0 0 6px rgba(80, 50, 130, 0.3);
+  animation: fadeIn 0.25s ease forwards;
+  max-width: 600px;
+  max-height: 550px;
+  overflow: hidden;
+}
+
+#entry image,
+#entry icon {
+  flex-shrink: 0;
+  width: 26px;
+  height: 26px;
+  filter: drop-shadow(0 0 1px rgba(0, 0, 0, 0.25));
+  border-radius: 5px;
+}
+
+#entry {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  border-radius: 12px;
+  padding: 8px 15px;
+  cursor: pointer;
+
+  /* importante para limitar o conteúdo do texto */
+  overflow: hidden;
+  min-width: 0; /* permite que os filhos possam encolher */
+}
+
+#entry #text {
+  white-space: nowrap; /* evita quebra de linha */
+  overflow: hidden; /* esconde o excesso */
+  text-overflow: ellipsis; /* mostra "..." */
+  flex-shrink: 1; /* permite encolher */
+  min-width: 0; /* permite encolher */
+  max-width: 280px; /* limite da largura do texto */
+}
+
+#entry arrow {
+  color: #a890cc;
+  transition: color 0.3s ease;
+}
+
+#entry:hover {
+  background-color: rgba(65, 50, 90, 0.4);
+  box-shadow: 0 0 8px rgba(120, 100, 170, 0.25);
+}
+
+#entry:selected {
+  background-color: rgba(85, 70, 110, 0.55);
+  box-shadow: 0 0 10px rgba(140, 120, 190, 0.4),
+    inset 0 0 6px rgba(140, 120, 190, 0.3);
+  color: #e0d7f0;
+  font-weight: 700;
+}
+
+#entry:selected #text {
+  color: #e0d7f0;
+}
+
+#entry:drop(active) {
+  background-color: rgba(130, 60, 90, 0.3) !important;
+}
+
+#scroll {
+  scrollbar-width: thin;
+  scrollbar-color: #9986d6 transparent;
+}
+
+scrollbar {
+  background-color: rgba(70, 70, 70, 0.15);
+  border-radius: 8px;
+  width: 7px;
+}
+
+scrollbar slider {
+  background-color: #9986d6;
+  border-radius: 8px;
+}
+
+#input {
+  all: unset;
+  margin: 20px 20px 10px 20px;
+  padding: 20px 18px;
+  border-radius: 14px;
+  background-color: rgba(45, 15, 75, 0.45);
+  color: #bfb4e0;
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+  font-size: 20px;
+  font-weight: 600;
+  transition: box-shadow 0.25s ease;
+}
+
+#input:focus {
+  outline: none;
+  box-shadow: 0 0 8px #9e8edd;
+}
+
+#input image {
+  border: none;
+  color: #b54b6f;
+}
+
+tooltip {
+  background-color: #4a3d6c;
+  color: #ddd;
+  border-radius: 6px;
+  padding: 6px 10px;
+  font-size: 13px;
+  box-shadow: 0 0 8px rgba(70, 60, 110, 0.4);
+}
