@@ -25,7 +25,7 @@ window {
   all: unset;
   padding: 25px 30px;
   border-radius: 18px;
-  background-color: rgba(25, 0, 46, 0.65);
+  background-color: rgba(25, 0, 46, 0.918);
   box-shadow: 0 0 6px rgba(80, 50, 130, 0.3);
   animation: fadeIn 0.25s ease forwards;
   max-width: 600px;
@@ -33,35 +33,43 @@ window {
   overflow: hidden;
 }
 
-#entry image,
-#entry icon {
-  flex-shrink: 0;
-  width: 26px;
-  height: 26px;
-  filter: drop-shadow(0 0 1px rgba(0, 0, 0, 0.25));
-  border-radius: 5px;
-}
-
 #entry {
   display: flex;
   align-items: center;
-  gap: 18px;
+  gap: 30px;
   border-radius: 12px;
   padding: 8px 15px;
   cursor: pointer;
 
-  /* importante para limitar o conteúdo do texto */
   overflow: hidden;
-  min-width: 0; /* permite que os filhos possam encolher */
+  min-width: 0; /* muito importante */
 }
 
-#entry #text {
-  white-space: nowrap; /* evita quebra de linha */
-  overflow: hidden; /* esconde o excesso */
-  text-overflow: ellipsis; /* mostra "..." */
-  flex-shrink: 1; /* permite encolher */
-  min-width: 0; /* permite encolher */
-  max-width: 280px; /* limite da largura do texto */
+#entry image,
+#entry icon {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  filter: drop-shadow(0 0 1px rgba(0, 0, 0, 0.25));
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+/* O texto, garantindo truncamento e flex correto */
+#entry span,
+#entry #text,
+#entry > *:not(image):not(icon):not(arrow) {
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+
+  /* flex-grow e flex-shrink para encolher e crescer */
+  flex-grow: 1 !important;
+  flex-shrink: 1 !important;
+  flex-basis: 0 !important;
+
+  min-width: 0 !important; /* permite encolher */
+  max-width: 180px !important; /* limite da largura do texto */
 }
 
 #entry arrow {
@@ -127,6 +135,8 @@ scrollbar slider {
 #input image {
   border: none;
   color: #b54b6f;
+  margin-right: 10px;
+  width: 24px;
 }
 
 tooltip {
