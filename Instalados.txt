@@ -4,7 +4,7 @@ sudo dnf install -y \
             swaync \
              hypridle \
     waybar \
-    rofi-wayland \
+    wofi \
         hyprpaper \
 
     grim \
