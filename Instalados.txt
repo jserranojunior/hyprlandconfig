@@ -1,37 +1,36 @@
-sudo dnf install -y \
+paru -S --needed \
+hyprlock \
+swaynotificationcenter \
+hypridle \
+hyprpaper \
+grim \
+slurp \
+wl-clipboard \
+polkit-gnome \
+htop \
+chafa \
+fzf \
+blueman \
+qt6-5compat \
+qt6-declarative \
+qt6-svg \
+playerctl \
+nm-connection-editor \
+network-manager-applet
+
+
+ARCH JA INSTALA
+thunar
+ kitty  \
+   sddm \
+wofi \
     hyprland \
-        hyprlock \
-            swaync \
-             hypridle \
-    waybar \
-    wofi \
-        hyprpaper \
+xdg-desktop-portal-hyprland
+waybar \
 
-    grim \
-    slurp \
-    wl-clipboard \
-   
-    xdg-desktop-portal-wlr \
-    kitty  \
-    lxpolkit \
-    thunar \
-    blueman \
-    htop \
-    flatpak \
-    git \
-    chafa \
-    fzf \
 
-    sddm \
-    qt6-qt5compat  \
-    qt6-qtdeclarative  \
-    qt6-qtsvg \
+ # old xdg-desktop-portal-wlr \
 
-    playerctl
-
-    nm-connection-editor
-    network-manager-applet
-   
 # calendario waybar
 foot
 
