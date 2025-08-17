@@ -1,5 +1,5 @@
 {
-  "height": 34,
+  "height": 42,
   "layer": "top",
   "exclusive": true,
   "passthrough": false,
@@ -47,13 +47,13 @@
       "default": ""
     }
   },
-  "custom/updates": {
-    "format": "⟳ {}",
-    "exec": "dnf check-update | grep -c '^[[:alnum:]]' || echo 0",
-    "tooltip": false,
-    "interval": 1800,
-    "on-click": "kitty -e bash -c 'sudo dnf update -y; exec bash'"
-  },
+"custom/updates": {
+  "format": "⟳ {}",
+  "exec": "checkupdates | wc -l",
+  "tooltip": false,
+  "interval": 1800,
+  "on-click": "kitty -e bash -c 'yay -Syu; exec bash'"
+},
   "group/app_drawer": {
     "orientation": "inherit",
     "drawer": {
@@ -71,7 +71,7 @@
     ]
   },
   "custom/youtubemusic": {
-    "format": "🎵 ",
+    "format": " ",
     "on-click": "flatpak run --command=brave com.brave.Browser --profile-directory=Default --app-id=cinhimbnkkaeohfgghhklpknlkffjgod",
     "tooltip": true,
     "tooltip-format": "Launch YouTube Music"
@@ -89,19 +89,19 @@
     "tooltip-format": "Terminal"
   },
   "custom/browser": {
-    "format": "🌍 ",
+    "format": " ",
     "on-click": "xdg-open http:// &",
     "tooltip": true,
     "tooltip-format": "Navegador"
   },
   "custom/steam": {
-    "format": "🏆 ",
+    "format": " ",
     "on-click": "steam",
     "tooltip": true,
     "tooltip-format": "Steam"
   },
   "custom/vscode": {
-    "format": "📝 ",
+    "format": " ",
     "on-click": "code",
     "tooltip": true,
     "tooltip-format": "Launch VS Code"
@@ -126,26 +126,20 @@
     "tooltip": true,
     "tooltip-format": "Memória: {used} GB de {total} GB"
   },
-  "network": {
-    "format": "{ifname}",
-    "format-wifi": "{icon}",
-    "format-ethernet": "󰌘",
-    "format-disconnected": "󰌙",
-    "tooltip-format": "{ipaddr}  {bandwidthUpBits}  {bandwidthDownBits}",
-    "format-linked": "󰈁 {ifname} (No IP)",
-    "tooltip-format-wifi": "{essid} {icon} {signalStrength}%",
-    "tooltip-format-ethernet": "{ifname} 󰌘",
-    "tooltip-format-disconnected": "󰌙 Disconnected",
-    "max-length": 30,
-    "format-icons": [
-      "󰤯",
-      "󰤟",
-      "󰤢",
-      "󰤥",
-      "󰤨"
-    ],
-    "on-click": "nm-connection-editor"
-  },
+"network": {
+  "format": "{icon} {status}",
+  "format-wifi": "󰤟 Conectado",
+  "format-ethernet": "󰲝 Conectado",
+  "format-disconnected": "󰲜 Desconectado",
+  "format-linked": "󰈁 Conectado (sem IP)",
+  "tooltip-format": "{ipaddr}  {bandwidthUpBits}  {bandwidthDownBits}",
+  "tooltip-format-wifi": "{essid} {icon} {signalStrength}%",
+  "tooltip-format-ethernet": "Conectado 󰱔",
+  "tooltip-format-disconnected": "Desconectado 󰲜",
+  "max-length": 30,
+  "on-click": "nm-connection-editor"
+}
+,
   "pulseaudio": {
     "format": "{volume}% {icon} {format_source}",
     "format-bluetooth": "{volume}% {icon} {format_source}",

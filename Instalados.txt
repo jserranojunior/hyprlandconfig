@@ -1,6 +1,7 @@
 paru -S --needed \
 hyprlock \
 swaynotificationcenter \
+saync
 hypridle \
 hyprpaper \
 grim \
@@ -31,6 +32,10 @@ waybar \
 
  # old xdg-desktop-portal-wlr \
 
+
+ ## UPDATE
+ pacman-contrib
+
 # calendario waybar
 foot
 
@@ -41,7 +46,8 @@ easyflatpak
 ## Gerenciador de tarefas
 flatpak install flathub io.missioncenter.MissionCenter
 
-
+### Fonte
+ttf-jetbrains-mono-nerd
 
 #### criar arquivo de inicializar o hyprland
 sudo nano /usr/share/wayland-sessions/hyprland.desktop

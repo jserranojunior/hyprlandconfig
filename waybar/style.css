@@ -1,12 +1,14 @@
 * {
   border: none;
-  font-family: "Font Awesome 6 Free", "Roboto", "Arial", sans-serif;
+  font-family: "JetBrainsMono Nerd Font Mono", "Noto Color Emoji", monospace;
   font-weight: 500;
   font-size: 13px;
   color: #ffffff;
   border-radius: 20px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  /* números alinhados */
 }
 
 window#waybar {
