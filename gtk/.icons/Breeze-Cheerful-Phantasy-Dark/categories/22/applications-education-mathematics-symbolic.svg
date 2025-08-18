@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   fill="none"
+   viewBox="0 0 22 22"
+   version="1.1"
+   id="svg3"
+   sodipodi:docname="applications-education-mathematics-symbolic.svg"
+   inkscape:version="1.4.2 (unknown)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview3"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="35.136364"
+     inkscape:cx="10.98577"
+     inkscape:cy="11"
+     inkscape:window-width="1920"
+     inkscape:window-height="998"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg3" />
+  <defs
+     id="defs1">
+    <linearGradient
+       id="linearGradient7"
+       inkscape:collect="always">
+      <stop
+         style="stop-color:#ff9955;stop-opacity:1"
+         offset="0"
+         id="stop7" />
+      <stop
+         style="stop-color:#2ad4ff;stop-opacity:1"
+         offset="1"
+         id="stop8" />
+    </linearGradient>
+    <style
+       type="text/css"
+       id="current-color-scheme">.ColorScheme-Text { color: #fcfcfc; } </style>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient7"
+       id="linearGradient4"
+       x1="5.5"
+       y1="11"
+       x2="16.5"
+       y2="11"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient7"
+       id="linearGradient6"
+       x1="12"
+       y1="11.5"
+       x2="16"
+       y2="11.5"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient7"
+       id="linearGradient8"
+       x1="2"
+       y1="17.858992"
+       x2="20"
+       y2="5.1086674"
+       gradientUnits="userSpaceOnUse" />
+  </defs>
+  <path
+     d="M10.67 7h5.83v1h-5.17l-2.78 7H7v-4H5.5v-1H8v2.5L7.875 14 9 11z"
+     style="fill:url(#linearGradient4)"
+     class="ColorScheme-Text"
+     id="path1" />
+  <path
+     d="M16 13.1v.9h-4v-1c.402-.268.804-.5 1.177-.715C14.197 11.696 15 11.232 15 10.5c0-.5-.5-.6-1-.6s-1 .1-1 .6h-1c0-1 1-1.5 2-1.5s2 .4 2 1.5c0 1.85-3 2.7-3 2.7l1-.1z"
+     style="fill:url(#linearGradient6)"
+     class="ColorScheme-Text"
+     id="path2" />
+  <path
+     fill-rule="evenodd"
+     d="M2 19V3h18v16zM3 4h16v14H3z"
+     clip-rule="evenodd"
+     style="fill:url(#linearGradient8)"
+     class="ColorScheme-Text"
+     id="path3" />
+</svg>

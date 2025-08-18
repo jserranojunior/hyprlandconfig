@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   fill="none"
+   viewBox="0 0 24 24"
+   width="24"
+   height="24"
+   version="1.1"
+   id="svg3"
+   sodipodi:docname="preferences-desktop-accessibility-symbolic.svg"
+   inkscape:version="1.4.2 (unknown)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview3"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="31.791667"
+     inkscape:cx="11.984273"
+     inkscape:cy="12"
+     inkscape:window-width="1920"
+     inkscape:window-height="996"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg3" />
+  <defs
+     id="defs1">
+    <linearGradient
+       id="linearGradient3"
+       inkscape:collect="always">
+      <stop
+         style="stop-color:#2a7fff;stop-opacity:1"
+         offset="0"
+         id="stop3" />
+      <stop
+         style="stop-color:#aa87de;stop-opacity:1"
+         offset="1"
+         id="stop4" />
+    </linearGradient>
+    <style
+       type="text/css"
+       id="current-color-scheme">.ColorScheme-Text { color: #fcfcfc; } </style>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3"
+       id="linearGradient4"
+       x1="2"
+       y1="11"
+       x2="20"
+       y2="11"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3"
+       id="linearGradient6"
+       x1="8.422699"
+       y1="10.925"
+       x2="16"
+       y2="10.925"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3"
+       id="linearGradient8"
+       x1="5.9999943"
+       y1="11.003152"
+       x2="14.5"
+       y2="11.003152"
+       gradientUnits="userSpaceOnUse" />
+  </defs>
+  <g
+     transform="translate(1,1)"
+     id="g3">
+    <path
+       d="M13.5 8a1 1 0 1 0 0-2 1 1 0 0 0 0 2M6 12.5a3.5 3.5 0 0 1 1.991-3.159l.891.891A2.351 2.351 0 1 0 11.797 13h1.168A3.5 3.5 0 0 1 6 12.5"
+       style="fill:url(#linearGradient8)"
+       class="ColorScheme-Text"
+       id="path1" />
+    <path
+       d="M9.931 7.769 8.85 8.85l-.175-.175C8.5 8.5 8.15 8.15 8.8 7.5l.65-.65c1 0 1.57.29 1.917.55l1.763 1.322S12.25 10 12.025 11l2.868-.1a.53.53 0 0 1 .545.596l-.361 2.889L16 15h-2.125L14 12h-3.867l-.063-.2a3 3 0 0 1 .163-2.208l.558-1.15h.383z"
+       style="fill:url(#linearGradient6)"
+       class="ColorScheme-Text"
+       id="path2" />
+    <path
+       fill-rule="evenodd"
+       d="M20 11a9 9 0 1 0-18 0 9 9 0 0 0 18 0m-9-8a8 8 0 1 1 0 16 8 8 0 0 1 0-16"
+       clip-rule="evenodd"
+       style="fill:url(#linearGradient4)"
+       class="ColorScheme-Text"
+       id="path3" />
+  </g>
+</svg>

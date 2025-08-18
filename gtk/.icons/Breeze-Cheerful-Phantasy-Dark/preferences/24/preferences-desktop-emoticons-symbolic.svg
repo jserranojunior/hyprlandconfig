@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="24"
+   height="24"
+   fill="none"
+   version="1.1"
+   viewBox="0 0 24 24"
+   id="svg4"
+   sodipodi:docname="preferences-desktop-emoticons-symbolic.svg"
+   inkscape:version="1.4.2 (unknown)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs4" />
+  <sodipodi:namedview
+     id="namedview4"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="31.791667"
+     inkscape:cx="12"
+     inkscape:cy="12"
+     inkscape:window-width="1920"
+     inkscape:window-height="996"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg4" />
+  <style
+     id="current-color-scheme"
+     type="text/css">.ColorScheme-Text { color: #fcfcfc; } </style>
+  <g
+     transform="translate(1,1)"
+     id="g4">
+    <g
+       class="ColorScheme-Text"
+       transform="translate(0 -.099188)"
+       fill="currentColor"
+       id="g3">
+      <path
+         d="m9 9c0 0.55228-0.44772 1-1 1s-1-0.44772-1-1 0.44772-1 1-1 1 0.44772 1 1z"
+         id="path1"
+         style="fill:#ffcc00" />
+      <path
+         d="m15 9c0 0.55228-0.4477 1-1 1s-1-0.44772-1-1 0.4477-1 1-1 1 0.44772 1 1z"
+         id="path2"
+         style="fill:#ffcc00" />
+      <path
+         d="m14.429 13.017c-1.5531 2.5885-5.3045 2.5885-6.8575 0l0.85749-0.5145c1.1647 1.9411 3.9778 1.9411 5.1426 0l0.8575 0.5145z"
+         clip-rule="evenodd"
+         fill-rule="evenodd"
+         id="path3"
+         style="fill:#ffcc00" />
+    </g>
+    <path
+       class="ColorScheme-Text"
+       d="m20 11a9 9 0 1 0-18 0 9 9 0 0 0 18 0m-9-8a8 8 0 1 1 0 16 8 8 0 0 1 0-16"
+       clip-rule="evenodd"
+       fill="currentColor"
+       fill-rule="evenodd"
+       id="path4"
+       style="fill:#ffcc00" />
+  </g>
+</svg>
