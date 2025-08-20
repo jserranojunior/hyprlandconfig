@@ -1,7 +1,7 @@
 #!/bin/bash
 
 WALLPAPER_DIR="/home/jorge/Imagens/Wallpaper/"
-HYPRPAPER_CONF="/opt/hyprland/hypr/hyprpaper.conf"
+HYPRPAPER_CONF="/opt/hyprlandconfig/hypr/hyprpaper.conf"
 LOG_FILE="/tmp/hyprpaper_selector.log"
 
 > "$LOG_FILE"
