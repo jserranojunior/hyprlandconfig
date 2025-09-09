@@ -7,7 +7,7 @@ hyprpaper \
 grim \
 slurp \
 wl-clipboard \
-polkit-gnome \
+polkit-kde \
 htop \
 chafa \
 fzf \
@@ -19,37 +19,43 @@ playerctl \
 nm-connection-editor \
 network-manager-applet
 
-
 ARCH JA INSTALA
 thunar
- kitty  \
-   sddm \
+kitty \
+ sddm \
 wofi \
-    hyprland \
+ hyprland \
 xdg-desktop-portal-hyprland
 waybar \
 
+#PARTIÇÕES
+gnome-disk-utility
 
- # old xdg-desktop-portal-wlr \
+# old xdg-desktop-portal-wlr \
 
+## UPDATE
 
- ## UPDATE
- pacman-contrib
+pacman-contrib
 
 # calendario waybar
+
 foot
 
-# Gerenciador de pacotes 
+# Gerenciador de pacotes
+
 dnfdragora
 easyflatpak
 
 ## Gerenciador de tarefas
+
 flatpak install flathub io.missioncenter.MissionCenter
 
 ### Fonte
+
 ttf-jetbrains-mono-nerd
 
 #### criar arquivo de inicializar o hyprland
+
 sudo nano /usr/share/wayland-sessions/hyprland.desktop
 
 [Desktop Entry]
@@ -59,6 +65,7 @@ Exec=Hyprland
 Type=Application
 
 # configurar o sddm
+
 sudo nano /etc/sddm.conf
 
 [General]
@@ -68,7 +75,7 @@ Session=hyprland.desktop
 #Tema do sddm
 cd /usr/share/sddm/themes/
 git clone https://github.com/JaKooLit/simple-sddm-2.git
-nano /etc/sddm.conf
+sudo nano /etc/sddm.conf
 colocar esse tema
 Current = simple-sddm-2
 
@@ -76,6 +83,9 @@ Current = simple-sddm-2
 sudo systemctl enable sddm
 sudo systemctl set-default graphical.target
 
-
 sudo nano ~/.profile
 exec --no-startup-id /home/jorge/.config/hyprlandconfig/NewConfigs/scripts/inactivity_lock.sh
+
+#Montar pendrive automaticamente
+
+sudo pacman -S gvfs gvfs-afc gvfs-gphoto2 gvfs-mtp gvfs-nfs gvfs-smb udisks2 thunar-volman
