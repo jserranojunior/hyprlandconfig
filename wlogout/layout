@@ -1,4 +1,10 @@
 {
+    "label" : "shutdown",
+    "action" : "systemctl poweroff",
+    "text" : "Desligar",
+    "keybind" : "s"
+}
+{
     "label" : "lock",
     "action" : "hyprlock",
     "text" : "Bloquear",
@@ -16,12 +22,7 @@
     "text" : "Sair",
     "keybind" : "e"
 }
-{
-    "label" : "shutdown",
-    "action" : "systemctl poweroff",
-    "text" : "Desligar",
-    "keybind" : "s"
-}
+
 {
     "label" : "suspend",
     "action" : "systemctl suspend",
