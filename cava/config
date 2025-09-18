@@ -1,0 +1,18 @@
+[color]
+# Gradiente neon vibrante
+gradient = 1
+
+gradient_color_1 = '#ff005f'  # rosa neon
+gradient_color_2 = '#ff87d7'  # rosa claro
+gradient_color_3 = '#00d7ff'  # azul neon
+gradient_color_4 = '#00ffff'  # ciano
+gradient_color_5 = '#00ff87'  # verde limão
+gradient_color_6 = '#d7ff00'  # amarelo neon
+gradient_color_7 = '#ff8700'  # laranja neon
+gradient_color_8 = '#ff0000'  # vermelho intenso
+
+# Ajustes adicionais para estilo
+bar_width = 3           # barra mais grossa
+bar_spacing = 1         # espaço entre barras
+framerate = 60          # mais suave
+bar_char = '█'          # barra cheia
