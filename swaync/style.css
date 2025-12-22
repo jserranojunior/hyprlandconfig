@@ -1,48 +1,61 @@
-/* Fundo do painel */
-window {
-  background-color: rgba(20, 20, 20, 0.95);
-  border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  font-family: "JetBrains Mono", "Fira Code", sans-serif;
+:root {
+  --border-radius: 22px;
+  --cc-bg: transparent;
+
+  --widget-background: rgba(46, 46, 46, 0.7);
+  --noti-bg-alpha: 0.6;
+
+  --padding: calc(var(--border-radius) / 2);
 }
 
-/* Notificações */
-.notification {
-  background-color: rgba(30, 30, 30, 0.9);
-  border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  padding: 10px;
-  margin-bottom: 5px;
+.control-center {
+  border-radius: 0;
 }
 
-/* Título da notificação */
-.notification-title {
-  font-weight: bold;
-  font-size: 1.1rem;
-  color: #ffffff;
+.widgets>.widget,
+.widget-mpris>carouselindicatordots,
+.widget-mpris>box>button {
+  background: var(--widget-background);
+  border-radius: var(--border-radius);
+  padding: calc(var(--border-radius) / 2);
+  border: var(--border);
 }
 
-/* Texto da notificação */
-.notification-body {
-  font-size: 0.9rem;
-  color: #cccccc;
+.control-center-list-placeholder {
+  padding: var(--border-radius);
 }
 
-/* Botões */
-button {
-  background-color: rgba(50, 50, 50, 0.8);
-  border-radius: 6px;
-  color: white;
+.notification-group {
+  border-radius: var(--border-radius);
+  padding: 8px;
+}
+
+.widget.widget-mpris {
+  background: transparent;
+  border-radius: 0;
+  padding: 0;
   border: none;
-  padding: 5px 10px;
 }
 
-button:hover {
-  background-color: rgba(80, 80, 80, 0.9);
+.widget.widget-mpris>carouselindicatordots {
+  --dots-padding: 4px;
+  padding: var(--dots-padding);
+  padding-left: var(--dots-padding);
+  padding-right: calc(6px + var(--dots-padding));
+  margin: 0;
+  margin-top: var(--padding);
 }
 
-/* Ícones */
-.icon {
-  background-size: contain;
-  background-repeat: no-repeat;
+.widget-mpris>box>button:hover {
+  background: rgba(46, 46, 46, 1);
+}
+
+.widget-mpris-player {
+  box-shadow: none;
+  border: var(--border);
+  margin: 0 var(--padding);
+}
+
+.widget-mpris-player:only-child {
+  margin: 0;
 }

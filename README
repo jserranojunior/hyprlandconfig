@@ -89,3 +89,6 @@ exec --no-startup-id /home/jorge/.config/hyprlandconfig/NewConfigs/scripts/inact
 #Montar pendrive automaticamente
 
 sudo pacman -S gvfs gvfs-afc gvfs-gphoto2 gvfs-mtp gvfs-nfs gvfs-smb udisks2 thunar-volman
+
+# Gerenciador de tarefas
+yay -S mission-center

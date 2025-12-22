@@ -47,13 +47,13 @@
       "default": ""
     }
   },
-"custom/updates": {
-  "format": "⟳ {}",
-  "exec": "checkupdates | wc -l",
-  "tooltip": false,
-  "interval": 1800,
-  "on-click": "kitty -e bash -c 'yay -Syu; exec bash'"
-},
+  "custom/updates": {
+    "format": "⟳ {}",
+    "exec": "checkupdates | wc -l",
+    "tooltip": false,
+    "interval": 1800,
+    "on-click": "kitty -e bash -c 'yay -Syu; exec bash'"
+  },
   "group/app_drawer": {
     "orientation": "inherit",
     "drawer": {
@@ -126,20 +126,19 @@
     "tooltip": true,
     "tooltip-format": "Memória: {used} GB de {total} GB"
   },
-"network": {
-  "format": "{icon} {status}",
-  "format-wifi": "󰤟 Conectado",
-  "format-ethernet": "󰲝 Conectado",
-  "format-disconnected": "󰲜 Desconectado",
-  "format-linked": "󰈁 Conectado (sem IP)",
-  "tooltip-format": "{ipaddr}  {bandwidthUpBits}  {bandwidthDownBits}",
-  "tooltip-format-wifi": "{essid} {icon} {signalStrength}%",
-  "tooltip-format-ethernet": "Conectado 󰱔",
-  "tooltip-format-disconnected": "Desconectado 󰲜",
-  "max-length": 30,
-  "on-click": "nm-connection-editor"
-}
-,
+  "network": {
+    "format": "{icon} {status}",
+    "format-wifi": "󰤟 Conectado",
+    "format-ethernet": "󰲝 Conectado",
+    "format-disconnected": "󰲜 Desconectado",
+    "format-linked": "󰈁 Conectado (sem IP)",
+    "tooltip-format": "{ipaddr}  {bandwidthUpBits}  {bandwidthDownBits}",
+    "tooltip-format-wifi": "{essid} {icon} {signalStrength}%",
+    "tooltip-format-ethernet": "Conectado 󰱔",
+    "tooltip-format-disconnected": "Desconectado 󰲜",
+    "max-length": 30,
+    "on-click": "nm-connection-editor"
+  },
   "pulseaudio": {
     "format": "{volume}% {icon} {format_source}",
     "format-bluetooth": "{volume}% {icon} {format_source}",
