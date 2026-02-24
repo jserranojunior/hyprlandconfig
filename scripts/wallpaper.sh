@@ -3,7 +3,7 @@
 # --- CONFIGURAÇÕES ---
 WALLPAPER_DIR="/home/jorge/Imagens/Wallpaper/"
 HYPRPAPER_CONF="/home/jorge/.config/hypr/hyprpaper.conf" # Alterado para sua home para evitar problemas de permissão
-MONITOR="DP-3" # O monitor que o seu debug identificou
+MONITOR="" # O monitor que o seu debug identificou
 LOG_FILE="/tmp/hyprpaper_selector.log"
 
 > "$LOG_FILE"
@@ -23,28 +23,35 @@ check_deps() {
 apply_wallpaper() {
     local image="$1"
     
-    # Atualiza o arquivo de configuração (usando o monitor DP-3 especificamente)
+    # 1. Garante que o diretório existe
+    mkdir -p "$(dirname "$HYPRPAPER_CONF")"
+
+    # 2. Atualiza o arquivo físico (O "cat" aqui garante a persistência no reboot)
+    # Importante: Removi espaços extras e usei aspas simples no EOF para evitar expansão indesejada
     cat > "$HYPRPAPER_CONF" <<EOF
 preload = $image
 wallpaper = $MONITOR,$image
 EOF
     
+    # 3. Aplica em tempo real via IPC
     if pgrep hyprpaper >/dev/null; then
-        # Sequência correta para evitar o erro "no target"
+        # Precarrega a nova
         hyprctl hyprpaper preload "$image" &>> "$LOG_FILE"
-        sleep 0.1 # Pequena pausa para o IPC processar o preload
+        sleep 0.2
+        # Aplica a nova
         hyprctl hyprpaper wallpaper "$MONITOR,$image" &>> "$LOG_FILE"
-        
-        # Limpa imagens antigas da memória para não vazar RAM
-        hyprctl hyprpaper unload all &>> "$LOG_FILE" 
+        sleep 0.2
+        # 4. LIMPEZA INTELIGENTE: 
+        # Em vez de 'unload all', vamos descarregar tudo EXCETO a imagem atual
+        # Isso evita que o Hyprpaper fique "vazio"
+        hyprctl hyprpaper unload unused &>> "$LOG_FILE"
     else
-        # Se não estiver rodando, inicia com o novo config
+        # Se não estiver rodando, inicia
         hyprpaper -c "$HYPRPAPER_CONF" &>> "$LOG_FILE" &
     fi
     
     echo "$image" > ~/.current_wallpaper
 }
-
 select_wallpaper() {
     # Usando find para listar as imagens e passar para o fzf com preview do chafa
     find "$WALLPAPER_DIR" -type f \( -iname "*.jpg" -o -iname "*.png" -o -iname "*.jpeg" -o -iname "*.webp" \) | \
