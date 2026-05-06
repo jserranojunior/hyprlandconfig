@@ -27,6 +27,8 @@
     "pulseaudio",
     "bluetooth",
     "custom/separator#dot-line",
+    "custom/warp",
+    "custom/separator#dot-line",
     "custom/updates",
     "custom/separator#dot-line",
     "custom/logout"
@@ -47,13 +49,20 @@
       "default": ""
     }
   },
+  "custom/warp": {
+    "format": "{} 󰖂",
+    "interval": 10,
+    "return-type": "json",
+    "exec": "status=$(warp-cli status | grep -oE 'Connected|Disconnected'); if [ \"$status\" = \"Connected\" ]; then echo '{\"text\": \"ON\", \"class\": \"connected\", \"tooltip\": \"WARP Connected\"}'; else echo '{\"text\": \"OFF\", \"class\": \"disconnected\", \"tooltip\": \"WARP Disconnected\"}'; fi",
+    "on-click": "status=$(warp-cli status | grep -oE 'Connected|Disconnected'); if [ \"$status\" = \"Connected\" ]; then warp-cli disconnect; else warp-cli connect; fi",
+    "tooltip": true
+},
   "custom/updates": {
     "format": "⟳ {}",
-    "exec": "checkupdates | wc -l",
+"exec": "echo $(( $(checkupdates | wc -l) + $(yay -Qua | wc -l) + $(flatpak remote-ls --updates | wc -l) ))",
     "tooltip": false,
     "interval": 1800,
-    "on-click": "kitty -e bash -c 'yay -Syu; exec bash'"
-  },
+"on-click": "kitty -e bash -c 'yay -Syu --noconfirm && flatpak update -y && echo \"Sistema Atualizado!\"; read -n 1; exec bash'"  },
   "group/app_drawer": {
     "orientation": "inherit",
     "drawer": {
