@@ -1,94 +1,130 @@
-paru -S --needed \
-hyprlock \
-swaynotificationcenter \
-saync
-hypridle \
-hyprpaper \
-grim \
-slurp \
-wl-clipboard \
-polkit-kde \
-htop \
-chafa \
-fzf \
-blueman \
-qt6-5compat \
-qt6-declarative \
-qt6-svg \
-playerctl \
-nm-connection-editor \
-network-manager-applet
+#!/bin/bash
 
-ARCH JA INSTALA
-thunar
-kitty \
- sddm \
-wofi \
- hyprland \
-xdg-desktop-portal-hyprland
-waybar \
+# ==========================================
+# 🚀 INSTALAÇÃO DE PACOTES (AUR - yay)
+# ==========================================
 
-#PARTIÇÕES
-gnome-disk-utility
+yay -S --needed \
+  hyprlock \        # Tela de bloqueio para Hyprland
+  noctalia-shell \  # Shell/tema customizado para Wayland
+  hypridle \        # Gerenciamento de inatividade (lock automático, etc.)
 
-# old xdg-desktop-portal-wlr \
+  grim \            # Screenshot no Wayland
+  slurp \           # Seleção de área para screenshot
 
-## UPDATE
+  wl-clipboard \    # Clipboard (copiar/colar no Wayland) - Usando para screeshot
+  playerctl \       # Controle de mídia via terminal
 
-pacman-contrib
+  polkit-kde \      # Autenticação gráfica (permissões de sistema)
 
-# calendario waybar
+  htop \            # Monitor de processos
+  fzf \             # Busca fuzzy (ótimo para terminal/scripts)
 
-foot
+  blueman \         # Interface gráfica para Bluetooth
 
-# Gerenciador de pacotes
+  qt6-5compat \     # Compatibilidade com apps Qt5
+  qt6-declarative \ # Suporte QML (Qt)
+  qt6-svg \         # Suporte a SVG (Qt)
 
-dnfdragora
-easyflatpak
+  mission-center    # Monitor de sistema com interface gráfica
 
-## Gerenciador de tarefas
+# ==========================================
+# 📦 PACOTES OFICIAIS (PACMAN)
+# ==========================================
 
-flatpak install flathub io.missioncenter.MissionCenter
+sudo pacman -S --needed \
+  thunar \                      # Gerenciador de arquivos
+  kitty \                       # Terminal moderno
+  sddm \                        # Display manager (login gráfico)
+  hyprland \                    # Window manager Wayland
+  xdg-desktop-portal-hyprland \ # Integração com apps (Wayland portal)
+  gnome-disk-utility \          # Gerenciar discos/partições
+  pacman-contrib \              # Ferramentas extras do pacman
 
-### Fonte
+  gvfs \ gvfs-afc \ gvfs-gphoto2 \ gvfs-mtp \ gvfs-nfs \ gvfs-smb \ # Montagem automática
+  udisks2 \                    # Gerenciamento de dispositivos
+  thunar-volman \              # Automount no Thunar
 
-ttf-jetbrains-mono-nerd
+  ttf-jetbrains-mono-nerd      # Fonte Nerd Font (programação)
 
-#### criar arquivo de inicializar o hyprland
+# ==========================================
+# 📦 FLATPAK (OPCIONAL)
+# ==========================================
 
-sudo nano /usr/share/wayland-sessions/hyprland.desktop
+flatpak install -y flathub io.missioncenter.MissionCenter
 
+# ==========================================
+# 📦 GERENCIADORES (OPCIONAL)
+# ==========================================
+
+yay -S --needed dnfdragora easyflatpak
+
+# ==========================================
+# ⚙️ CONFIGURAR HYPRLAND NO SDDM
+# ==========================================
+
+echo "Criando sessão do Hyprland..."
+
+sudo mkdir -p /usr/share/wayland-sessions
+
+sudo bash -c 'cat > /usr/share/wayland-sessions/hyprland.desktop <<EOF
 [Desktop Entry]
 Name=Hyprland
 Comment=An Intelligent Dynamic Tiling Wayland Compositor
 Exec=Hyprland
 Type=Application
+EOF'
 
-# configurar o sddm
+# ==========================================
+# ⚙️ CONFIGURAR SDDM
+# ==========================================
 
-sudo nano /etc/sddm.conf
+echo "Configurando SDDM..."
 
+sudo bash -c 'cat > /etc/sddm.conf <<EOF
 [General]
 DisplayServer=wayland
 Session=hyprland.desktop
 
-#Tema do sddm
-cd /usr/share/sddm/themes/
-git clone https://github.com/JaKooLit/simple-sddm-2.git
-sudo nano /etc/sddm.conf
-colocar esse tema
-Current = simple-sddm-2
+[Theme]
+Current=simple-sddm-2
+EOF'
 
-#Habilitar no boot
+# ==========================================
+# 🎨 INSTALAR TEMA SDDM
+# ==========================================
+
+echo "Instalando tema do SDDM..."
+
+cd /usr/share/sddm/themes/ || exit
+sudo git clone https://github.com/JaKooLit/simple-sddm-2.git
+
+# ==========================================
+# 🚀 ATIVAR NO BOOT
+# ==========================================
+
+echo "Ativando SDDM no boot..."
+
 sudo systemctl enable sddm
 sudo systemctl set-default graphical.target
 
-sudo nano ~/.profile
-exec --no-startup-id /home/jorge/.config/hyprlandconfig/NewConfigs/scripts/inactivity_lock.sh
+# ==========================================
+# 🔒 SCRIPT DE LOCK AUTOMÁTICO
+# ==========================================
 
-#Montar pendrive automaticamente
+echo "Configurando script de lock..."
 
-sudo pacman -S gvfs gvfs-afc gvfs-gphoto2 gvfs-mtp gvfs-nfs gvfs-smb udisks2 thunar-volman
+PROFILE_FILE="$HOME/.profile"
 
-# Gerenciador de tarefas
-yay -S mission-center
+if ! grep -q "inactivity_lock.sh" "$PROFILE_FILE"; then
+  echo 'exec --no-startup-id ~/.config/hyprlandconfig/NewConfigs/scripts/inactivity_lock.sh' >> "$PROFILE_FILE"
+fi
+
+# ==========================================
+# ✅ FINALIZAÇÃO
+# ==========================================
+
+echo "=========================================="
+echo "✅ Setup concluído!"
+echo "👉 Reinicie o sistema para aplicar tudo"
+echo "=========================================="
