@@ -9,8 +9,7 @@ yay -S --needed \
   noctalia-shell \  # Shell/tema customizado para Wayland
   hypridle \        # Gerenciamento de inatividade (lock automático, etc.)
 
-  grim \            # Screenshot no Wayland
-  slurp \           # Seleção de área para screenshot
+  grimblast \       # Ferramenta de screenshot para Wayland
 
   wl-clipboard \    # Clipboard (copiar/colar no Wayland) - Usando para screeshot
   playerctl \       # Controle de mídia via terminal
