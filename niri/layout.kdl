@@ -1,0 +1,25 @@
+layout {
+    // Equilíbrio entre os seus gaps_in (2) e gaps_out (5) do Hyprland
+    gaps 6
+
+    center-focused-column "never"
+
+    preset-column-widths {
+        proportion 0.33333
+        proportion 0.5
+        proportion 0.66667
+    }
+
+    default-column-width { proportion 0.5; }
+
+    // border_size = 1 do Hyprland configurado aqui
+    focus-ring {
+        width 1
+        active-color "#542b8f"
+        inactive-color "#505050"
+    }
+
+    border {
+        off
+    }
+}
