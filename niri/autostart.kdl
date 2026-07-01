@@ -1,16 +1,9 @@
-// ==========================================
-// Ambiente e Autenticação
-// ==========================================
 spawn-at-startup "dbus-update-activation-environment" "--systemd" "WAYLAND_DISPLAY" "XDG_CURRENT_DESKTOP"
 spawn-at-startup "systemctl" "--user" "import-environment" "WAYLAND_DISPLAY" "XDG_CURRENT_DESKTOP"
 spawn-at-startup "/usr/lib/polkit-kde-authentication-agent-1"
 
-// ==========================================
-// Inicialização do Noctalia
-// ==========================================
 spawn-at-startup "qs" "-c" "noctalia-shell"
 
-// ==========================================
-// Wallpaper (Comentado igual ao seu original)
-// ==========================================
-// spawn-sh-at-startup "ipc='qs -c noctalia-shell ipc call'; $ipc wallpaper set /home/jorge/Imagens/Wallpaper/412679-Linux-gradient-Unix-Arch-Linux-technology-operating.png"
+hotkey-overlay {
+    skip-at-startup
+}

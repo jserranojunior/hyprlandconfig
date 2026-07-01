@@ -1,8 +1,4 @@
 binds {
-    // ==========================================
-    // Atalhos: Janelas
-    // ==========================================
-
     Mod+Q { close-window; }
     Mod+M { quit; }
     Mod+V { toggle-window-floating; }
@@ -10,65 +6,40 @@ binds {
     Mod+Shift+F { fullscreen-window; }
     Mod+R { switch-preset-column-width; }
 
-    // ==========================================
-    // Atalhos: Seus Aplicativos
-    // ==========================================
-
-    // Usando o formato de array [] do Niri para garantir que os argumentos passem corretamente
     Mod+S { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "settings" "open"; }
     Mod+P { spawn "pavucontrol"; }
     Mod+K { spawn "warp-terminal"; }
     Mod+T { spawn "kitty"; }
 
-    // Correção dos atalhos de IPC da Noctalia usando o formato correto
     Mod+L { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "sessionMenu" "toggle"; }
     Mod+D { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "launcher" "toggle"; }
     Mod+B { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "bar" "toggle"; }
 
-Mod+Alt+C { spawn "sh" "-c" "notify-send 'VS Code' 'Abrindo o Visual Studio Code...' & flatpak run com.visualstudio.code"; }
-Mod+Alt+S { spawn "sh" "-c" "notify-send 'Steam' 'Iniciando a Steam...' & steam"; }
-Mod+Alt+N { spawn "sh" "-c" "notify-send 'Brave' 'Abrindo o navegador Brave...' & flatpak run com.brave.Browser --password-store=basic"; }
-Mod+Alt+T { spawn "sh" "-c" "notify-send 'Thunar' 'Abrindo o gerenciador de arquivos...' & thunar"; }
-Mod+Alt+D { spawn "sh" "-c" "notify-send 'Discord' 'Iniciando o Discord...' & discord"; }
+    Mod+Alt+C { spawn "sh" "-c" "notify-send 'VS Code' 'Abrindo o Visual Studio Code...' & flatpak run com.visualstudio.code"; }
+    Mod+Alt+S { spawn "sh" "-c" "notify-send 'Steam' 'Iniciando a Steam...' & steam"; }
+    Mod+Alt+N { spawn "sh" "-c" "notify-send 'Brave' 'Abrindo o navegador Brave...' & flatpak run com.brave.Browser --password-store=basic"; }
+    Mod+Alt+T { spawn "sh" "-c" "notify-send 'Thunar' 'Abrindo o gerenciador de arquivos...' & thunar"; }
+    Mod+Alt+D { spawn "sh" "-c" "notify-send 'Discord' 'Iniciando o Discord...' & discord"; }
 
-    // ==========================================
-    // Navegação Essencial (Modificada)
-    // ==========================================
-
-    // Navegação lateral usando números
     Mod+1 { focus-column-left; }
     Mod+2 { focus-column-right; }
     
-    // Mantido o vertical nas setas (ou mude se preferir)
     Mod+Up   { focus-window-up; }
     Mod+Down { focus-window-down; }
 
-    // Movimentação de janelas (se quiser mudar para 1 e 2 também, me avisa!)
     Mod+Ctrl+Left  { move-column-left; }
     Mod+Ctrl+Right { move-column-right; }
     Mod+Ctrl+Up    { move-window-up; }
     Mod+Ctrl+Down  { move-window-down; }
 
-    // Workspaces
     Mod+Page_Down      { focus-workspace-down; }
     Mod+Page_Up        { focus-workspace-up; }
     Mod+Ctrl+Page_Down { move-column-to-workspace-down; }
     Mod+Ctrl+Page_Up   { move-column-to-workspace-up; }
 
-
-// --- Screenshot da Tela Inteira ---
-Mod+X { spawn "sh" "-c" "grim $HOME/Imagens/Screenshots/screenshot-$(date +%Y-%m-%d_%H-%M-%S).png"; }
-
-// --- Screenshot de Área ---
-Mod+Shift+X { spawn "sh" "-c" "grim -g \"$(slurp)\" $HOME/Imagens/Screenshots/screenshot-$(date +%Y-%m-%d_%H-%M-%S).png"; }
+    Mod+X { spawn "sh" "-c" "grim $HOME/Imagens/Screenshots/screenshot-$(date +%Y-%m-%d_%H-%M-%S).png"; }
+    Mod+Shift+X { spawn "sh" "-c" "grim -g \"$(slurp)\" $HOME/Imagens/Screenshots/screenshot-$(date +%Y-%m-%d_%H-%M-%S).png"; }
     
-// ##########################
-// # Atalhos: Áudio e Vol.  #
-// ##########################
-
-// Aumentar Volume
-Mod+Ctrl+Equal { spawn "wpctl" "set-volume" "-l" "1.0" "@DEFAULT_AUDIO_SINK@" "1%+"; }
-
-// Diminuir Volume
-Mod+Ctrl+Minus { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "1%-"; }
+    Mod+Ctrl+Equal { spawn "wpctl" "set-volume" "-l" "1.0" "@DEFAULT_AUDIO_SINK@" "1%+"; }
+    Mod+Ctrl+Minus { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "1%-"; }
 }
